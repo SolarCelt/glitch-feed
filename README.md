@@ -1,2 +1,2 @@
-# glitch-feed
-Brutalist glitchcore web zine built from chaos and broken feeds
+# STAFF ONLY
+EXCUSE ME LIL MISSY BUT UR NOT supposed to be here 
