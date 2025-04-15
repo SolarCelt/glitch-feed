@@ -1,1 +1,103 @@
-<html><body style='background:#000;color:#fff;'><h1>Poster 1</h1><p>Deep detail about the artwork here. Scroll forever.</p></body></html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>POSTER: CHAOS UNIT 001</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: #00ffcc;
+      font-family: monospace;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 2rem;
+      text-align: center;
+      font-size: 2rem;
+      letter-spacing: 0.1em;
+      text-shadow: 0 0 5px #ff00ff, 0 0 10px #00ffff;
+    }
+
+    .art-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .poster-img {
+      width: 80%;
+      max-width: 700px;
+      height: auto;
+      border: 5px dashed #00ffff;
+      margin-bottom: 2rem;
+      transition: filter 0.4s ease, transform 0.3s ease;
+    }
+
+    .poster-img:hover {
+      filter: hue-rotate(90deg) saturate(2);
+      transform: scale(1.05) rotate(1deg);
+    }
+
+    .description {
+      font-size: 1rem;
+      max-width: 700px;
+      line-height: 1.6;
+      color: #ccc;
+      text-shadow: 0 0 2px #ff00ff;
+      padding: 1rem;
+    }
+
+    .glitch-scroll {
+      margin-top: 5rem;
+      height: 100px;
+      background: repeating-linear-gradient(90deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+      background-size: 400% auto;
+      animation: scroll-loop 10s linear infinite;
+      filter: blur(1px) brightness(1.2);
+    }
+
+    @keyframes scroll-loop {
+      0% { background-position: 0% 0; }
+      100% { background-position: 100% 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>CHAOS UNIT 001 — [ART DETAIL]</header>
+
+  <div class="art-container">
+    <img src="posters/poster1.jpg" alt="Poster 1" class="poster-img" />
+    <div class="description">
+      <p><strong>Title:</strong> CHAOS UNIT 001</p>
+      <p><strong>Medium:</strong> Digital collage, glitch composite, textural overlay</p>
+      <p><strong>Description:</strong> Originally generated in the corporate caution capsule dump, this piece reflects media erosion, hyper-archive feedback loops, and emotional bandwidth compression. Data-torn noise. Memory rot. Symbolic decay made visible.</p>
+      <p><strong>Year:</strong> 2025</p>
+      <p><strong>Sound cue:</strong> Hover for embedded FX</p>
+    </div>
+    <div class="glitch-scroll"></div>
+  </div>
+
+  <audio id="hoverSound" src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Glitch3.ogg" preload="auto"></audio>
+
+  <script>
+    const poster = document.querySelector(".poster-img");
+    const sound = document.getElementById("hoverSound");
+
+    poster.addEventListener("mouseenter", () => {
+      sound.currentTime = 0;
+      sound.play();
+    });
+
+    poster.addEventListener("mouseleave", () => {
+      sound.pause();
+    });
+  </script>
+
+</body>
+</html>
