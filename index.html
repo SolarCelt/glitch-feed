@@ -181,3 +181,112 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>corporatecaution.com</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(45deg, red, yellow, lime, cyan, purple, black);
+      background-size: 400% 400%;
+      animation: gradientShift 30s infinite;
+      font-family: sans-serif;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .sticky-nav {
+      position: fixed;
+      top: 20%;
+      right: 20px;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .sticky-nav a {
+      background: black;
+      color: white;
+      padding: 0.6rem 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: transform 0.2s ease;
+    }
+
+    .sticky-nav a:hover {
+      transform: scale(1.1) rotate(-2deg);
+      background: magenta;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 5rem 1rem;
+      gap: 2rem;
+    }
+
+    .poster {
+      width: 280px;
+      height: 400px;
+      background: gray;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .poster:hover {
+      animation: randomEffect 0.5s forwards;
+    }
+
+    @keyframes randomEffect {
+      0% { transform: rotate(0) scale(1); filter: hue-rotate(0deg); }
+      50% { transform: rotate(3deg) scale(1.05); filter: hue-rotate(90deg); }
+      100% { transform: rotate(-3deg) scale(0.98); filter: hue-rotate(0deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sticky-nav">
+    <a href="shop.html">DESIGN SHOP</a>
+    <a href="archive.html">GRAPHIC ARCHIVE</a>
+    <a href="contact.html">CONTACT PAGE</a>
+  </div>
+
+  <div class="gallery">
+    <div class="poster" onclick="location.href='poster1.html'" style="background-image: url('assets/poster1.jpg'); background-size: cover;"></div>
+    <div class="poster" onclick="location.href='poster2.html'" style="background-image: url('assets/poster2.jpg'); background-size: cover;"></div>
+    <div class="poster" onclick="location.href='poster3.html'" style="background-image: url('assets/poster3.jpg'); background-size: cover;"></div>
+    <!-- Add more as needed -->
+  </div>
+
+  <script>
+    // scroll-reactive floating nav buttons
+    const navLinks = document.querySelectorAll('.sticky-nav a');
+
+    let lastScroll = window.scrollY;
+    window.addEventListener('scroll', () => {
+      const delta = window.scrollY - lastScroll;
+      lastScroll = window.scrollY;
+      navLinks.forEach(link => {
+        link.style.transform = `translateY(${delta * 0.2}px) scale(1.02)`;
+        setTimeout(() => link.style.transform = '', 100);
+      });
+    });
+  </script>
+
+</body>
+</html>
+
