@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CORPORATE CAUTION</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: black;
+      overflow-x: hidden;
+      cursor: crosshair;
+    }
+
+    /* Rainbow static background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, red, yellow, green, cyan, magenta, black);
+      background-size: 800% 800%;
+      animation: rainbow 40s linear infinite;
+      z-index: -2;
+      filter: contrast(1.4) brightness(1.2);
+    }
+
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .sticky-buttons {
+      position: fixed;
+      right: 2vw;
+      top: 30vh;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      z-index: 10;
+    }
+
+    .sticky-buttons a {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      background: black;
+      color: white;
+      padding: 0.8rem 1.2rem;
+      border-radius: 10px;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .sticky-buttons a:hover {
+      transform: scale(1.1);
+      background: #00f0ff;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 5rem 2rem;
+      gap: 2rem;
+    }
+
+    .poster {
+      width: 300px;
+      height: 400px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 6px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      cursor: pointer;
+    }
+
+    .poster:hover {
+      animation: glitchy 0.4s infinite alternate;
+    }
+
+    @keyframes glitchy {
+      0% { transform: scale(1) rotate(0deg); filter: hue-rotate(0deg); }
+      50% { transform: scale(1.03) rotate(1deg); filter: hue-rotate(80deg); }
+      100% { transform: scale(0.98) rotate(-2deg); filter: hue-rotate(0deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sticky-buttons">
+    <a href="shop.html">DESIGN SHOP</a>
+    <a href="archive.html">2025–2042 GRAPHIC ARCHIVE</a>
+    <a href="contact.html">CONTACT PAGE</a>
+  </div>
+
+  <div class="gallery">
+    <div class="poster" onclick="location.href='poster1.html'" style="background-image: url('posters/poster1.jpg')"></div>
+    <div class="poster" onclick="location.href='poster2.html'" style="background-image: url('posters/poster2.jpg')"></div>
+    <div class="poster" onclick="location.href='poster3.html'" style="background-image: url('posters/poster3.jpg')"></div>
+    <div class="poster" onclick="location.href='poster4.html'" style="background-image: url('posters/poster4.jpg')"></div>
+    <!-- Add more posters as needed -->
+  </div>
+
+  <script>
+    // Scroll-based momentum bounce for buttons
+    let lastScroll = window.scrollY;
+    const buttons = document.querySelectorAll('.sticky-buttons a');
+
+    window.addEventListener('scroll', () => {
+      const delta = window.scrollY - lastScroll;
+      buttons.forEach(btn => {
+        btn.style.transform = `translateY(${delta * 0.3}px)`;
+        btn.style.transition = '
