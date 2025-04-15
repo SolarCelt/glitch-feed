@@ -3,68 +3,105 @@
 <head>
   <title>Graphic Archive</title>
   <style>
-    body {
-      margin: 0;
-      background: black;
-      font-family: sans-serif;
-      color: white;
-      overflow-x: hidden;
-    }
+  body {
+    margin: 0;
+    background: black;
+    font-family: sans-serif;
+    color: white;
+    overflow-x: hidden;
+  }
 
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at center, red, yellow, green, cyan, magenta, black);
-      background-size: 800% 800%;
-      animation: rainbow 40s linear infinite;
-      z-index: -2;
-      filter: contrast(1.4) brightness(1.2);
-    }
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, red, yellow, green, cyan, magenta, black);
+    background-size: 800% 800%;
+    animation: rainbow 40s linear infinite;
+    z-index: -2;
+    filter: contrast(1.4) brightness(1.2);
+  }
 
-    @keyframes rainbow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    
-    .mini-nav {
-      position: fixed;
-      top: 30vh;
-      right: 2vw;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      z-index: 10;
-    }
+  @keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+.mini-nav {
+  position: fixed;
+  top: 30vh;
+  right: 2vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 10;
+}
 
-    .mini-nav a {
-      background: black;
-      color: white;
-      text-decoration: none;
-      padding: 0.8rem 1.2rem;
-      font-size: 1rem;
-      font-weight: bold;
-      border-radius: 10px;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
+.mini-nav a {
+  background: black;
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
 
-    .mini-nav a:hover {
-      transform: scale(1.1);
-      background: #00f0ff;
-    }
+.mini-nav a:hover {
+  transform: scale(1.1);
+  background: #00f0ff;
+}
+
+/* Toggle for mobile view */
+.nav-toggle {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: black;
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  padding: 0.5rem 1rem;
+  z-index: 20;
+  border-radius: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .mini-nav {
+    top: 4rem;
+    right: 1rem;
+    display: none;
+  }
+
+  .mini-nav.active {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
 
 </style>
 </head>
 <body>
-  <div class="mini-nav">
+  <button class="nav-toggle" onclick="toggleNav()">☰ MENU</button>
+  <div class="mini-nav" id="mobileNav">
     <a href="index.html">HOME</a>
     <a href="shop.html">SHOP</a>
     <a href="contact.html">CONTACT</a>
   </div>
   <h1>Graphic Archive</h1>
   <p>Coming soon...</p>
+  <script>
+    function toggleNav() {
+      document.getElementById('mobileNav').classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
