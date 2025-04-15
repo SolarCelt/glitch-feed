@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,6 @@
       cursor: crosshair;
     }
 
-    /* Rainbow static background */
     body::before {
       content: '';
       position: fixed;
@@ -100,15 +100,11 @@
     <div class="poster" onclick="location.href='poster1.html'" style="background-image: url('posters/poster1.jpg')"></div>
     <div class="poster" onclick="location.href='poster2.html'" style="background-image: url('posters/poster2.jpg')"></div>
     <div class="poster" onclick="location.href='poster3.html'" style="background-image: url('posters/poster3.jpg')"></div>
-    <div class="poster" onclick="location.href='poster4.html'" style="background-image: url('posters/poster4.jpg')"></div>
-    <!-- Add more posters as needed -->
   </div>
 
   <script>
-    // Scroll-based momentum bounce for buttons
     let lastScroll = window.scrollY;
     const buttons = document.querySelectorAll('.sticky-buttons a');
-
     window.addEventListener('scroll', () => {
       const delta = window.scrollY - lastScroll;
       buttons.forEach(btn => {
@@ -122,5 +118,3 @@
 
 </body>
 </html>
-
-
